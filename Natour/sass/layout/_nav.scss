@@ -1,0 +1,88 @@
+.navigation {
+
+    &__checked {
+        display: none;
+    }
+
+    &__label {
+        width: 6rem;
+        height: 6rem;
+        position: fixed;
+        top: 7rem;
+        right: 7rem;
+        background-color: $color-white;
+        border-radius: 50%;
+        z-index:2000;
+    }
+
+    &__back {
+        width: 5rem;
+        height: 5rem;
+        position: fixed;
+        top: 7.5rem;
+        right: 7.5rem;
+        background-image: radial-gradient($color-primary-light,$color-primary-dark);
+        border-radius: 50%;
+        z-index:1000;
+        transition: transform .8s;
+
+    }
+
+    &__nav {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1500;
+
+        opacity: 0;
+        width: 0;
+        transition: all 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    &__list {
+        list-style: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        list-style: none;
+        text-align: center;
+        width: 100%;
+    }
+
+
+    &__link {
+        text-decoration: none;
+        color: $color-white;
+        font-size: 3.5rem;
+        font-weight: 300;
+
+        
+    }
+
+    &__item {
+        margin: 1rem;
+    }
+
+    
+    &__checked:checked ~ &__back {
+        transform: scale(80);
+    }
+
+    &__checked:not(:checked) ~ &__back {
+        transform: scale(1);
+    }
+
+    
+    &__checked:checked ~ &__nav {
+        opacity: 1;
+        width: 100%;
+    }
+
+    &__checked:not(:checked) ~ &__nav {
+        opacity: 0;
+        width: 0;
+    }
+
+}
